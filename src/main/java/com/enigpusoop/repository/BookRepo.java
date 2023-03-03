@@ -32,18 +32,20 @@ ArrayList<String[]> books = new ArrayList<>();
     @Override
     public String searchByTitle(String title) {
         String result ="";
-        for(String[] book : books){
-            if(books.contains(title)){
-                result = "Code: " + book[0] +"\n" +
-                        "Judul: " + book[1] +"\n" +
-                        "Publisher: " + book[2] + "\n" +
-                        "Tahun Terbit: " +book[3] + "\n" +
-                        "Author: " +book[4]+"\n"+
-                        "+++++++++++++++++++++++++++";
+        try {
+            for(String[] book : books) {
+                if (books.contains(title)) {
+                    result = "Code: " + book[0] + "\n" +
+                            "Judul: " + book[1] + "\n" +
+                            "Publisher: " + book[2] + "\n" +
+                            "Tahun Terbit: " + book[3] + "\n" +
+                            "Author: " + book[4] + "\n" +
+                            "+++++++++++++++++++++++++++";
+                }
             }
+        }catch (Exception e){
+            System.err.println("Buku Tidak Ditemukan");
         }
-
-
 
         return result;
     }
