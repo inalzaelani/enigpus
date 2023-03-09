@@ -11,31 +11,29 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-        ctx.register(BeanConfigurationProd.class);
-        ctx.refresh();
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(BeanConfigurationDev.class, BeanConfigurationProd.class);
         IBookService bookService = ctx.getBean(IBookService.class);
 
         Book book = new Book("127","ASDFGHJ","ASD","2001","asd");
         bookService.createBook(book);
 
-        Book book2 = new Book("125","ASD","ASD","2001","asd");
-        Book book3 = new Book("126","ASD","ASD","2001","asd");
-        List<Book> books = new ArrayList<>();
-        books.add(book2);
-        books.add(book3);
-        try {
-            bookService.createAll(books);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-
-
-//        bookService.getAllBook();
+//        Book book2 = new Book("125","ASD","ASD","2001","asd");
+//        Book book3 = new Book("126","ASD","ASD","2001","asd");
+//        List<Book> books = new ArrayList<>();
+//        books.add(book2);
+//        books.add(book3);
+//        try {
+//            bookService.createAll(books);
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//
+//
+        bookService.getAllBook();
 
 //        try {
-//            bookService.searchByTittleBook("ASDF");
+//            bookService.searchByTittleBook("ASDFGHJ");
 //        } catch (Exception e) {
 //            throw new RuntimeException(e);
 //        }
